@@ -66,6 +66,7 @@ a {
   padding: 10px;
   background-color: #fff;
   box-shadow: 0 1px 20px #222;
+  z-index: 1000;
 }
 
 .nav__container {
@@ -161,7 +162,8 @@ a {
 
 .form-section__title-container {
   display: inline-block;
-  padding: 10px 20px;
+  margin-bottom: 50px;
+  padding: 15px 30px;
   color: #fff;
   background-color: #fcbc04;
 }
@@ -170,10 +172,65 @@ a {
   margin: 0;
 }
 
+.form__row {
+  margin-bottom: 30px;
+}
+
+.form__input {
+  margin-right: 10px;
+  padding: 15px 40px;
+  border-radius: 30px;
+  border: 1px solid #CBCBCB;
+}
+
+.form__button {
+  padding: 15px 30px;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  background-color: #222;
+}
+
+.checkbox {
+  position: relative;
+}
+
+.checkbox__input {
+  margin-right: 5px;
+  visibility: hidden;
+}
+
+.checkbox__check {
+  position: absolute;
+  top: calc(50% - 5px);
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #222;
+  border-radius: 3px;
+  /* visibility: hidden; */
+}
+
+.checkbox__check::after {
+  content: '\2714';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.checkbox__input:checked + .checkbox__check::after {
+  opacity: 1;
+}
+
 /* -----------catalog------- */
 .catalog__container {
   text-align: center;
 }
+
 .catalog__title {
   display: inline-block;
   padding-left: 10px;
@@ -206,4 +263,82 @@ a {
   cursor: pointer;
   background-color: #FCBC04;
   border-color: #FCBC04;
+}
+
+.catalog__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.catalog__item {
+  width: 31.333%;
+  margin-bottom: 3%;
+  padding-bottom: 20px;
+  background-color: #fff;
+}
+
+.catalog__item:not(:nth-child(3n)) {
+  margin-right: 3%;
+}
+
+.car-info__price {
+  margin-top: 0;
+  padding: 10px;
+  padding-left: 20px;
+  text-align: left;
+  background-color: #FCBC04;
+  z-index: 0;
+}
+
+.car-info__title {
+  border-left: 5px solid #FCBC04;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.car-info__specifications {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 20px;
+  text-align: left;
+  border-top: 1px solid #EBEBEB;
+}
+
+.car-info__row {
+  width: 50%;
+}
+
+.car-info__text {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.car-info__button {
+  width: 90%;
+  padding: 5px;
+  text-transform: uppercase;
+  border: 2px solid #222;
+  background-color: #222;
+  transition: color .2s ease-out, background-color .2s ease-out;
+}
+
+.car-info__button_more {
+  background-color: #fff;
+}
+
+.car-info__button_more:hover {
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+}
+
+.car-info__button_form {
+  color: #fff;
+}
+
+.car-info__button_form:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #222;
 }
