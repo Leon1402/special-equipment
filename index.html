@@ -5,6 +5,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 
+<script src="inputmask.min.js"></script>
+<script>
+/* Локализация datepicker */
+  $.datepicker.regional['ru'] = {
+    closeText: 'Закрыть',
+    prevText: 'Предыдущий',
+    nextText: 'Следующий',
+    currentText: 'Сегодня',
+    monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+    monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+    dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+    dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+    dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+    weekHeader: 'Не',
+    dateFormat: 'dd.mm.yy',
+    firstDay: 1,
+    isRTL: false,
+    showMonthAfterYear: false,
+    yearSuffix: ''
+  };
+  $.datepicker.setDefaults($.datepicker.regional['ru']);
+  $(function(){
+    $(".modal__date").datepicker({
+      minDate: 0
+    });
+  });
+</script>
+
   <title>Document</title>
 
   <link rel="stylesheet" href="normalize.css">
@@ -43,6 +76,47 @@
       </ul>
     </div>
   </nav>
+  
+  <div class="modal">
+    <form class="modal__content modal-form">
+      <button class="modal__close">X</button>
+      <div class="modal__block modal__block_date">
+        <label class="modal__label modal__label_date">Дата получения*
+          <div class="modal__date-row">
+            <input id="date1" type="text" class="modal__input modal__date" required>
+          </div>
+        </label>
+        <label class="modal__label">Дата возврата*
+          <div class="modal__date-row">
+            <input type="text" class="modal__input modal__date" required>
+          </div>
+        </label>
+      </div>
+      <label class="modal__label modal__label_textarea">
+        Примечания
+        <textarea class="modal__input modal__textarea" placeholder="Укажите место проведения работ"></textarea>
+      </label class="modal__label">
+      <div class="modal__block">
+        <label class="modal__label modal__label_fio">
+          <div>ФИО*</div>
+          <input type="text" class="modal__input modal__input_text" required>
+        </label>
+        <label class="modal__label">
+          <div>Телефон*</div>
+          <input type="tel" class="modal__input modal__input_tel" required>
+        </label>
+      </div>
+      <label class="modal__checkbox checkbox">
+        <input type="checkbox" class="checkbox__input" required>
+        даю согласие на обработку и хранение персональных данных
+        <span class="checkbox__check"></span>
+      </label>
+      <p class="modal__text">
+        * - поля, обязательные для заполнения
+      </p>
+      <button class="modal__button">Отправить</button>
+    </form>
+  </div>
 
   <section class="hero">
     <div class="container hero__container">
@@ -280,6 +354,7 @@
       </ul>
     </div>
   </section>
+  <script src="script.js"></script>
 </body>
 
 </html>
